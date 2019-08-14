@@ -17,7 +17,9 @@
 </head>
 <body style="background-image:url(https://vignette.wikia.nocookie.net/swordartonline/images/4/40/Aincard_in_ALO.png/revision/latest?cb=20121223021437);margin-top: 50px;">
     <header class="container" id="welcomesign">
-        <center><div class= "jumbotron" id="head" style="font-size: 40px; font-family: Elephant; background-color:rgba(255,255,255,0.4)">WELCOME USER!!</div></center>   
+        <center><div class= "jumbotron" id="head" style="font-size: 40px; font-family: Elephant; background-color:rgba(255, 255,255,0.4)">WELCOME
+          <div id="profileinfo"></div>
+        </div></center>   
     </header>
 
           <div class="container" id="btnsign">
@@ -39,6 +41,8 @@
  <script>
         function onSuccess(googleUser) {
                           console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                          var profile = googleUser.getBasicProfile();
+                          document.getElementById('profileinfo').innerHTML = profile.getName() + "<br>" + "<img src = '" + profile.getImageUrl() + "'/>";
                     }
 
               function onFailure(error) {
